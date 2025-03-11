@@ -10,19 +10,24 @@ import { useEffect, useState } from "react";
 import LoadingScreen from "./components/loading-screen";
 import { auth } from "./firebase";
 import { styled } from 'styled-components';
+import ProtectedRoute from "./components/protected-route";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
+    element: (
+      <ProtectedRoute>
+        <Layout />
+      </ProtectedRoute>
+    ),
     children: [
       {
         path: "",
-        element: <Home />,
+        element: <Home />
       },
       {
         path:"profile",
-        element: <Profile />,
+        element: <Profile />
       },
     ],
   },
@@ -67,7 +72,7 @@ function App() {
   return (
     <Wrapper>
       <GlobalStyles />
-      {isLoading ? <LoadingScreen /> : <RouterProvider router={router} />}
+       {isLoading ? <LoadingScreen /> : <RouterProvider router={router} />}
     </Wrapper>
   );
 }
