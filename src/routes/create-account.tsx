@@ -12,6 +12,7 @@ import {
   Switcher,
   Wrapper,
 } from "../components/auth-components";
+import GithubButton from "../components/github-btn";
 
 export default function CreateAccount() {
   const navigate = useNavigate();
@@ -61,13 +62,13 @@ export default function CreateAccount() {
 
   return (
     <Wrapper>
-      <Title>Join ⚡</Title>
+      <Title>MUSINSA</Title>
       <Form onSubmit={onSubmit}>
         <Input
           onChange={onChange}
           name='name'
           value={name}
-          placeholder='Name'
+          placeholder='이름'
           type='text'
           required
         />
@@ -75,7 +76,7 @@ export default function CreateAccount() {
           onChange={onChange}
           name='email'
           value={email}
-          placeholder='Email'
+          placeholder='이메일'
           type='email'
           required
         />
@@ -83,19 +84,17 @@ export default function CreateAccount() {
           onChange={onChange}
           name='password'
           value={password}
-          placeholder='Password'
+          placeholder='패스워드'
           type='password'
           required
         />
-        <Input
-          type='submit'
-          value={isLoading ? "Loading..." : "Create Account"}
-        />
+        <Input type='submit' value={isLoading ? "Loading..." : "계정 생성"} />
       </Form>
       {error !== "" ? <Error>{error}</Error> : null}
       <Switcher>
-        Already have an account? <Link to='/login'>Log in &rarr;</Link>
+        이미 계정이 있나요? <Link to='/login'>로그인 &rarr;</Link>
       </Switcher>
+      <GithubButton />
     </Wrapper>
   );
 }
