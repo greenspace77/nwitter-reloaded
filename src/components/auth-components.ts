@@ -15,28 +15,29 @@ export const Title = styled.h1`
 `;
 
 export const Form = styled.form`
-    margin-top: 50px
-    margin-bottom: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%
+  margin-top: 50px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
 `;
 
 export const Input = styled.input`
-    padding: 10px 20px;
-    border-radius: 50px;
-    border: none;
-    width: 100%;
-    font-size: 16px;
-    margin-bottom: 10px;
-    &[type="submit"] {
-        cursor: pointer;
-        margin-bottom: 0
-        &:hover {
-            opacity: 0.8;
-        }   
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: none;
+  width: 100%;
+  font-size: 16px;
+  margin-bottom: 10px;
+  &[type="submit"] {
+    cursor: pointer;
+    background-color: #1d9bf0;
+    color: white;
+    &:hover {
+      opacity: 0.8;
     }
+  }
 `;
 
 export const Error = styled.span`
