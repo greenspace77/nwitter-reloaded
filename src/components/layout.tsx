@@ -1,11 +1,11 @@
-import { Link,Outlet, useNavigate } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 import { auth } from "../firebase";
 
 const Wrapper = styled.div`
   display: grid;
   gap: 20px;
-  grid-template-colmun: 1fr 4fr;
+  grid-template-columns: 1fr 4fr;
   height: 100%;
   padding: 50px 0px;
   width: 100%;
@@ -29,7 +29,7 @@ const MenuItem = styled.div`
   width: 50px;
   border-radius: 50%;
   svg {
-    widht: 30px;
+    width: 30px;
     fill: white;
   }
   &.log-out {
@@ -39,7 +39,6 @@ const MenuItem = styled.div`
     }
   }
 `;
-
 
 export default function Layout() {
   const navigate = useNavigate();
