@@ -2,9 +2,11 @@ import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import { db } from "../firebase";
+import Tweet from "./tweet";
 
 export interface ITweet {
-  photo:string;
+  id:string;
+  photo?:string;
   tweet:string;
   userId:string;
   username:string;
@@ -20,12 +22,27 @@ export default function Timeline() {
       collection(db, "tweets"),
       orderBy("createdAt", "desc")
     );
-    const spanshot = await getDocs(tweetsQuery);
-    spanshot.docs.forEach((doc) => console.log(doc.data()));
+    const snapshot = await getDocs(tweetsQuery);
+    const tweets = snapshot.docs.map((doc) => {
+      const {tweet, createdAt, userId, username, photo} = doc.data();
+      return {
+        tweet, 
+        createdAt, 
+        userId, 
+        username, 
+        photo,
+        id: doc.id,
+      };
+    });
+    setTweet(tweets);
   };
   useEffect(() => {
     fetchTweets();
   }, [])
 
-  return <Wrapper>{JSON.stringify(tweets)}</Wrapper>;
+  return <Wrapper>
+    {tweets.map((tweet) => (
+      <Tweet key={tweet.id} {...tweet} />
+    ))} 
+  </Wrapper>;
 }
