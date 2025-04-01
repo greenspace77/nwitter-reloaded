@@ -51,7 +51,7 @@ export default function CreateAccount() {
 
   return (
     <Wrapper>
-      <Title>MUSINSA</Title>
+      <Title>무신사 SNS</Title>
       <Form onSubmit={onSubmit}>
         <Input
           onChange={onChange}
@@ -69,7 +69,7 @@ export default function CreateAccount() {
           type='password'
           required
         />
-        <Input type='submit' value={isLoading ? "Loading..." : "로그인"} />
+        <Input type='submit' value={isLoading ? "로그인 중..." : "로그인"} />
       </Form>
       {error !== "" ? <Error>{error}</Error> : null}
       <Switcher>
